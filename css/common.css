@@ -1,0 +1,185 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+/*
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Amiri', serif;
+*/
+/* base */
+body{ background-color: #000; }
+*{ padding: 0; margin: 0; font-family: 'Noto Sans KR', sans-serif; color: #fff; font-weight: 400; }
+li{ list-style: none; }
+a{ text-decoration: none; }
+img{ border: none; }
+button{ border: none; }
+.away{ position: absolute; left: -999em; }
+fieldset{ border: none; }
+
+/* ===================== 공통작업 ========================= */
+/* panel */
+.panel{ position: absolute; z-index: 50000; transition: 0.2s; }
+.panel a{ position: relative; display: block; width: 100%; height: 100%; transition: 0.3s; }
+.panel span{ position: absolute; display: block; background-color: #fff; transition: 0.3s; }
+.panel span.line02{ top: 13px }
+/* panel-active */
+.panel a.active{ transform: rotate(45deg); transition-delay: 0.3s; }
+.panel a.active .line01{ top: 7px; }
+.panel a.active .line02{ top: 7px; transform: rotate(90deg); }
+/* .gnb */
+.gnb{ position: fixed; width: 100%; height: 100%; top: -100%; background-repeat: no-repeat; background-position: center; background-size: cover; z-index: 49000; transition: 0.6s; overflow-y: auto; -ms-overflow-style: none; }
+::-webkit-scrollbar { display:none; } 
+.gnb a{ color: #ccc; font-family: 'Amiri', '바탕체', serif; font-weight: 700; }
+.gnb > ul > li{ position: relative; }
+.gnb .mainNav{ transition: 0.2s; }
+.gnb .subNav{ display: none; position: absolute; top: 0; z-index: 48000; }
+.gnb .subNav a{ font-weight: 400; }
+/* gnb-hover */
+.gnb .mainNav:hover{ color: #fff; }
+.gnb .subNav a:hover{ color: #fff; text-decoration: underline; }
+/* gnb-active */
+.gnb.active{ top: 0; }
+.gnb.active + header{ display: none; }
+/* header */
+header{ position: fixed; display: flex; justify-content: space-between; width: 100%; z-index: 47000; transition: 0.3s; }
+header h1, header h1 img{ height: 100%; }
+header .topNav ul{ display: flex; width: 100%; height: 100%; }
+header .topNav li{ flex: 1; height: 100%; }
+header .topNav a{ display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-size: contain; background-position: center; font-weight: 400; }
+header .topNav .search{ background-image: url(../images/common/search_icon.png); }
+header .topNav .cart{ background-image: url(../images/common/cart_icon.png); }
+/* pageBtn */
+#pagebtn{ position: fixed; left: 40px; z-index: 4000; top: 50%; transform: translateY(-50%); transition: 1s; }
+#pagebtn li{ margin: 15px 0; }
+#pagebtn li a{ color: #666; font-family: 'Amiri', '바탕체', serif; font-size: 22px; writing-mode: vertical-rl; font-weight: 700; }
+#pagebtn li.active a{ color: #fff; }
+#pagebtn.active{ left: -200px; }
+/* footer */
+#footer{ position: relative; width: 100%; height: auto!important; background-color: #111; background-repeat: no-repeat; background-position: bottom; }
+#footer .fp-tableCell{ height: auto!important; }
+#footer .snsBox{ position: absolute; }
+#footer .snsBox ul{ display: flex; width: 125px; height: 50px; }
+#footer .snsBox li{ flex: 1; }
+#footer .snsBox li.first{ margin-right: 25px; }
+#footer .snsBox a{ display: block; width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: cover; }
+#footer .snsBox .sns01{ background-image: url(../images/common/instagram_icon.png); }
+#footer .snsBox .sns02{ background-image: url(../images/common/youtube_icon.png); }
+#footer .fNav{ text-align: center; }
+#footer .fNav a{ font-family: 'Amiri', '바탕체', serif; font-size: 26px; }
+#footer .fMenu ul{ display: flex; justify-content: center; }
+#footer .fMenu ul li{ margin: 0 25px; }
+#footer .fMenu a, #footer p, #footer .pcOnly, #footer .mobileX{ color: #999; text-align: center; font-size: 12px; line-height: 25px; }
+#footer .mOnly{ display: none; }
+#footer .fMenu .first a{ color: #fff; }
+#footer .fMenu a{ font-size: 14px; }
+#footer .topBtn{ position: absolute; display: block; background-repeat: no-repeat; background-position: center; background-size: cover; background-image: url(../images/main/scroll_arrow.png); transform: rotate(180deg); }
+/* ===================== 공통작업 ========================= */
+
+/* ===================== desktop ========================= */
+@media screen and (min-width: 1024px){
+    /* panel */
+    .panel{ top: 105px; right: 150px; width: 45px; height: 35px; }
+    .panel span{ width: 45px; height: 5px; }
+    /* .gnb */
+    .gnb{ padding-left: 150px; padding-top: 220px; box-sizing: border-box; background-image: url(../images/common/panel_bg.png); }
+    .gnb > ul > li{ margin-bottom: 15px; }
+    .gnb .mainNav{ font-size: 52px; }
+    .gnb .subNav{ top: 25px; left: 500px; }
+    .gnb .list02 .subNav{ top: 20px; }
+    .gnb .list03 .subNav{ top: 15px; }
+    .gnb .subNav li{ margin-bottom: 10px; }
+    .gnb .subNav a{ font-size: 30px; }
+    /* header*/
+    header{ top: 90px; height: 50px; padding: 0 150px; box-sizing: border-box; }
+    header .topNav{ width: 90px; height: 100%; margin-right: 115px; }
+    header .topNav li.first{ margin-right: 40px; }
+    /* footer */
+    #footer{ padding: 80px 0 171px; box-sizing: border-box; background-image: url(../images/common/pc_footer_bg.png); }
+    #footer .snsBox{ left: 150px; top: 80px; }
+    #footer .fMenu{ margin: 40px 0 20px; }
+    #footer .topBtn{ right: 150px; top:100px; width: 15px; height: 68px; }
+}
+/* ===================== desktop ========================= */
+
+/* ===================== tablet ========================= */
+@media screen and (max-width: 1023px){
+    *{ font-size: 14px; }   
+    /* panel */
+    .panel{ top: 65px; right: 50px; width: 35px; height: 35px; }
+    .panel span{ width: 100%; height: 5px; }
+    .panel span.line02{ top: 13px }
+    /* .gnb */
+    .gnb{ padding-left: 50px; padding-top: 250px; box-sizing: border-box; background-image: url(../images/common/tablet_panel_bg.png); }
+    .gnb > ul > li{ margin-bottom: 25px; }
+    .gnb .mainNav{ font-size: 42px; }
+    .gnb .subNav{ top: 18px; left: 350px; }
+    .gnb .list02 .subNav{ top: 15px; }
+    .gnb .list03 .subNav{ top: 13px; }
+    .gnb .subNav li{ margin-bottom: 10px; }
+    .gnb .subNav a{ font-size: 25px; }
+    /* header*/
+    header{ top: 50px; height: 50px; padding: 0 50px; box-sizing: border-box; }
+    header .topNav{ width: 90px; height: 100%; margin-right: 105px; }
+    header .topNav li.first{ margin-right: 40px; }
+    /* pagebtn */
+    #pagebtn{ left: 20px; }
+    /* footer */
+    #footer{ padding: 50px 0 150px; box-sizing: border-box; background-image: url(../images/common/tablet_footer_bg.png); background-size: contain; }
+    #footer .snsBox{ left: 50px; top: 50px; }
+    #footer .fMenu{ margin: 20px 0; }
+    #footer .pcOnly{ display: none; }
+    #footer .topBtn{ right: 50px; top:70px; width: 15px; height: 65px; }
+}
+/* ===================== tablet ========================= */
+
+/* ===================== mobile ========================= */
+@media screen and (max-width: 767px){
+    *{ font-size: 12px; }   
+    /* panel */
+    .panel{ top: 35px; right: 15px; width: 25px; height: 25px; }
+    .panel span{ width: 100%; height: 3px; }
+    .panel span.line02{ top: 10px }
+    /* gnb */
+    .gnb{ padding-left: 15px; padding-top: 200px; }
+    .gnb > ul > li{ margin-bottom: 15px; }
+    .gnb .mainNav{ font-size: 26px; }
+    .gnb .subNav{ top: 10px; left: 200px; }
+    .gnb .list02 .subNav, .gnb .list03 .subNav{ top: 10px; }
+    .gnb .subNav li{ margin-bottom: 5px; }
+    .gnb .subNav a{ font-size: 18px; }
+    /* header*/
+    header{ top: 25px; height: 30px; padding: 0 15px; }
+    header .topNav{ display: none; margin-right: 75px; }
+    /* pagebtn */
+    #pagebtn{ display: none; }
+    /* footer */
+    #footer{ padding: 80px 0 90px; background-image: url(../images/common/mobile_footer_bg.png); background-size: contain; }
+    #footer .snsBox{ left: 45px; }
+    #footer .snsBox ul{ display: block; width: 30px; height: 80px; }
+    #footer .snsBox li{ width: 100%; height: 30px; margin-bottom: 20px; }
+    #footer .fNav li{ margin-bottom: 5px; }
+    #footer .fNav a{ font-size: 18px; }
+    #footer .fMenu ul{ flex-wrap: wrap; padding: 0 80px; box-sizing: border-box; }
+    #footer .fMenu li{ margin: 0 30px; }
+    #footer .fMenu li.first{ margin: 0; margin-right: 25px; margin-bottom: 10px; }
+    #footer .fMenu li.list02{ margin: 0; margin-bottom: 10px; }
+    #footer .topBtn{ display: none; }
+}
+/* ===================== mobile ========================= */
+    
+/* ===================== iphone6/7/8 ========================= */
+@media screen and (max-width: 375px){
+    #footer .fMenu ul{ flex-wrap: wrap; padding: 0 10px; box-sizing: border-box; }    
+}    
+/* ===================== iphone6/7/8 ========================= */    
+
+/* ===================== iphone5 ========================= */
+@media screen and (max-width: 320px){
+    *{ font-size: 12px; } 
+    /* footer */
+    #footer .fMenu ul{ padding: 0;} 
+    #footer .fMenu ul li{ margin: 0 15px; }
+    #footer .mobileX{ display: none; }
+    #footer .mOnly{ display: block; }
+    
+}
+/* ===================== iphone5 ========================= */
